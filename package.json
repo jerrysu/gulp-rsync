@@ -1,0 +1,36 @@
+{
+  "name": "gulp-rsync",
+  "version": "0.0.1",
+  "description": "Rsync tasks for deploying gulp file structures",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jerrysu/gulp-rsync.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "rsync",
+    "ssh",
+    "deploy",
+    "deployment"
+  ],
+  "author": "Jerry Su <email@jerrysu.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jerrysu/gulp-rsync/issues"
+  },
+  "homepage": "https://github.com/jerrysu/gulp-rsync",
+  "devDependencies": {
+    "better-assert": "^1.0.1",
+    "chai": "^1.9.1",
+    "gulp": "^3.8.7",
+    "gulp-util": "^3.0.0",
+    "lodash.every": "^2.4.1",
+    "lodash.isstring": "^2.4.1",
+    "mocha": "^1.21.4",
+    "through2": "^0.6.1"
+  }
+}
