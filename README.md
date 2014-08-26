@@ -106,9 +106,9 @@ This looks like:
 [20:49:53] gulp-rsync:         2712 100%  101.86kB/s    0:00:00 (xfer#2, to-check=11/13) 
 [20:49:53] gulp-rsync: css/style.1afca52f.css 
 [20:49:53] gulp-rsync:         1445 100%   54.27kB/s    0:00:00 (xfer#3, to-check=9/13) 
-[20:49:53] gulp-rsync: images/shoe-share.82515393.jpg 
+[20:49:53] gulp-rsync: images/photo1.82515393.jpg 
 [20:49:53] gulp-rsync:        31878 100%    1.09MB/s    0:00:00 (xfer#7, to-check=3/13) 
-[20:49:53] gulp-rsync: images/shoe.2a41e1e3.jpg 
+[20:49:53] gulp-rsync: images/photo2.2a41e1e3.jpg 
 [20:49:53] gulp-rsync:        76988 100%    2.53MB/s    0:00:00 (xfer#9, to-check=1/13) 
 [20:49:53] gulp-rsync:  
 [20:49:53] gulp-rsync: sent 2401 bytes  received 2820 bytes  10442.00 bytes/sec 
