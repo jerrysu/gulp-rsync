@@ -1,18 +1,18 @@
-# gulp-rsync
+## gulp-rsync
 
 Use the file transferring and syncing capabilities of rsync within your Gulp task.
 
-## Prerequisites
+### Prerequisites
 
 rsync needs to be installed on your machine.
 
-## Installation
+### Installation
 
 ```
 npm install https://github.com/jerrysu/gulp-rsync.git
 ```
 
-## Usage
+### Usage
 
 ```js
 var gulp = require('gulp');
@@ -28,20 +28,20 @@ gulp.task('deploy', function() {
 });
 ```
 
-## API
+### API
 
-### `rsync(options)`
+#### `rsync(options)`
 
-#### `options`
+##### `options`
 
-##### `destination`
+###### `destination`
 
 Type: `string`
 Required: Yes
 
 The destination path. Use `hostname` when using a remote path.
 
-##### `root`
+###### `root`
 
 Type: `string`
 Default: `process.cwd()`
@@ -63,7 +63,7 @@ gulp.src('build/js/**']).pipe(rsync({root: 'build', destination: '/tmp'});
 
 This will create the directory `js` in `/tmp`.
 
-##### `hostname`
+###### `hostname`
 
 Type: `string`
 
@@ -72,13 +72,13 @@ along with configuration in `~/.ssh/config` or SSH keys stored in a keychain.
 
 When this is omitted, rsync will transfer the content to a local path.
 
-##### `username`
+###### `username`
 
 Type: `string`
 
 Used to specify a user for the remote host.
 
-##### `incremental`
+###### `incremental`
 
 Type: `boolean`
 Default: `false`
@@ -88,7 +88,7 @@ checksum of every file to determine whether a file needs to be updated. This
 will add a delay to the transfer, but will minimize the amount of files
 transferred each time.
 
-##### `progress`
+###### `progress`
 
 Type: `boolean`
 Default: `false`
@@ -116,7 +116,7 @@ This looks like:
 [20:49:53] gulp-rsync: Completed rsync.
 ```
 
-##### `relative`
+###### `relative`
 
 Type: `boolean`
 Default: `true`
@@ -136,14 +136,14 @@ gulp.src(['build/js/**/*.js', 'build/css/**/*.css', 'build/images/**'])
 
 This will transfer all assets (*.js, *.css, and images) into a single directory.
 
-##### `emptyDirectories`
+###### `emptyDirectories`
 
 Type: `boolean`
 Default: `false`
 
 If set to `true`, rsync will create empty directories.
 
-##### `recursive`
+###### `recursive`
 
 Type: `boolean`
 Default: `false`
@@ -174,7 +174,7 @@ gulp.src(['build/js/**', 'build/css/**', 'build/images/**'])
 The difference is that the actual `rsync` command used in the first example is
 much shorter.
 
-##### clean
+###### clean
 
 Type: `boolean`
 Default: `false`
@@ -183,7 +183,7 @@ This must be used with `recursive` set to `true`. If set to `true`, this
 instructs rsync to delete all files and directories that are not in the source
 paths. **Be careful with this option as it could lead to data loss.**
 
-##### `exclude`
+###### `exclude`
 
 Type: `string|Array<string>`
 
@@ -191,7 +191,7 @@ Enables files or directories matching the pattern(s) provided to be excluded
 from the transfer. This is probably most useful when `recursive` is set to
 `true` since it is typically better to make these exclusions in `gulp.src()`.
 
-##### `include`
+###### `include`
 
 Type: `string|Array<string>`
 
@@ -212,14 +212,14 @@ gulp.src('build')
 
 This will transfer only minified CSS and JS files.
 
-##### `silent`
+###### `silent`
 
 Type: `boolean`
 Default: `false`
 
 Turns off logging.
 
-### License
+#### License
 
 The MIT License (MIT)
 
