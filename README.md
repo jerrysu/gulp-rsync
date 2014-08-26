@@ -36,7 +36,7 @@ gulp.task('deploy', function() {
 
 ###### `destination`
 
-Type: `string`, Required: Yes
+Type: `string`, **Required**
 
 The destination path. Use `hostname` when using a remote path.
 
