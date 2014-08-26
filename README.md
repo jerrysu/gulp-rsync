@@ -1,18 +1,18 @@
-# gulp-rsync
+## gulp-rsync
 
 Use the file transferring and syncing capabilities of rsync within your Gulp task.
 
-## Prerequisites
+### Prerequisites
 
 rsync needs to be installed on your machine.
 
-## Installation
+### Installation
 
 ```
 npm install https://github.com/jerrysu/gulp-rsync.git
 ```
 
-## Usage
+### Usage
 
 ```js
 var gulp = require('gulp');
@@ -28,23 +28,21 @@ gulp.task('deploy', function() {
 });
 ```
 
-## API
+### API
 
-### `rsync(options)`
+#### `rsync(options)`
 
-#### `options`
+##### `options`
 
-##### `destination`
+###### `destination`
 
-Type: `string`
-Required: Yes
+Type: `string`, **Required**
 
 The destination path. Use `hostname` when using a remote path.
 
-##### `root`
+###### `root`
 
-Type: `string`
-Default: `process.cwd()`
+Type: `string`, Default: `process.cwd()`
 
 Specifying a root path changes the path names that are transferred to the
 destination. The paths piped into rsync must be within the root path (or the
@@ -63,7 +61,7 @@ gulp.src('build/js/**']).pipe(rsync({root: 'build', destination: '/tmp'});
 
 This will create the directory `js` in `/tmp`.
 
-##### `hostname`
+###### `hostname`
 
 Type: `string`
 
@@ -72,26 +70,24 @@ along with configuration in `~/.ssh/config` or SSH keys stored in a keychain.
 
 When this is omitted, rsync will transfer the content to a local path.
 
-##### `username`
+###### `username`
 
 Type: `string`
 
 Used to specify a user for the remote host.
 
-##### `incremental`
+###### `incremental`
 
-Type: `boolean`
-Default: `false`
+Type: `boolean`, Default: `false`
 
 If set to `true`, rsync will make incremental updates only. rsync will use the
 checksum of every file to determine whether a file needs to be updated. This
 will add a delay to the transfer, but will minimize the amount of files
 transferred each time.
 
-##### `progress`
+###### `progress`
 
-Type: `boolean`
-Default: `false`
+Type: `boolean`, Default: `false`
 
 If set to `true`, the transfer progress for each file will be displayed in the
 console.
@@ -106,9 +102,9 @@ This looks like:
 [20:49:53] gulp-rsync:         2712 100%  101.86kB/s    0:00:00 (xfer#2, to-check=11/13) 
 [20:49:53] gulp-rsync: css/style.1afca52f.css 
 [20:49:53] gulp-rsync:         1445 100%   54.27kB/s    0:00:00 (xfer#3, to-check=9/13) 
-[20:49:53] gulp-rsync: images/shoe-share.82515393.jpg 
+[20:49:53] gulp-rsync: images/photo1.82515393.jpg 
 [20:49:53] gulp-rsync:        31878 100%    1.09MB/s    0:00:00 (xfer#7, to-check=3/13) 
-[20:49:53] gulp-rsync: images/shoe.2a41e1e3.jpg 
+[20:49:53] gulp-rsync: images/photo2.2a41e1e3.jpg 
 [20:49:53] gulp-rsync:        76988 100%    2.53MB/s    0:00:00 (xfer#9, to-check=1/13) 
 [20:49:53] gulp-rsync:  
 [20:49:53] gulp-rsync: sent 2401 bytes  received 2820 bytes  10442.00 bytes/sec 
@@ -116,10 +112,9 @@ This looks like:
 [20:49:53] gulp-rsync: Completed rsync.
 ```
 
-##### `relative`
+###### `relative`
 
-Type: `boolean`
-Default: `true`
+Type: `boolean`, Default: `true`
 
 By default, gulp-rsync will transfer all paths relative to the `root` specified.
 If you want to transfer assets from multiple paths to a single destination, you
@@ -136,17 +131,15 @@ gulp.src(['build/js/**/*.js', 'build/css/**/*.css', 'build/images/**'])
 
 This will transfer all assets (*.js, *.css, and images) into a single directory.
 
-##### `emptyDirectories`
+###### `emptyDirectories`
 
-Type: `boolean`
-Default: `false`
+Type: `boolean`, Default: `false`
 
 If set to `true`, rsync will create empty directories.
 
-##### `recursive`
+###### `recursive`
 
-Type: `boolean`
-Default: `false`
+Type: `boolean`, Default: `false`
 
 If set to `true`, rsync will transfer all files and subdirectories recursively.
 This is not necessary when using glob(s) with `gulp.src()`. However, it can be
@@ -174,16 +167,15 @@ gulp.src(['build/js/**', 'build/css/**', 'build/images/**'])
 The difference is that the actual `rsync` command used in the first example is
 much shorter.
 
-##### clean
+###### clean
 
-Type: `boolean`
-Default: `false`
+Type: `boolean`, Default: `false`
 
 This must be used with `recursive` set to `true`. If set to `true`, this
 instructs rsync to delete all files and directories that are not in the source
 paths. **Be careful with this option as it could lead to data loss.**
 
-##### `exclude`
+###### `exclude`
 
 Type: `string|Array<string>`
 
@@ -191,7 +183,7 @@ Enables files or directories matching the pattern(s) provided to be excluded
 from the transfer. This is probably most useful when `recursive` is set to
 `true` since it is typically better to make these exclusions in `gulp.src()`.
 
-##### `include`
+###### `include`
 
 Type: `string|Array<string>`
 
@@ -212,32 +204,31 @@ gulp.src('build')
 
 This will transfer only minified CSS and JS files.
 
-##### `silent`
+###### `silent`
 
-Type: `boolean`
-Default: `false`
+Type: `boolean`, Default: `false`
 
 Turns off logging.
 
-### License
+#### License
 
-The MIT License (MIT)
-
-Copyright © 2014 Jerry Su, http://jerrysu.me
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the “Software”), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+> The MIT License (MIT)
+>
+> Copyright © 2014 Jerry Su, http://jerrysu.me
+>
+> Permission is hereby granted, free of charge, to any person obtaining a copy of
+> this software and associated documentation files (the “Software”), to deal in
+> the Software without restriction, including without limitation the rights to
+> use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+> the Software, and to permit persons to whom the Software is furnished to do so,
+> subject to the following conditions:
+>
+> The above copyright notice and this permission notice shall be included in all
+> copies or substantial portions of the Software.
+>
+> THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+> FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+> COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+> IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+> CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
