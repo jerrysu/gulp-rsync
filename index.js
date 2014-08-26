@@ -12,7 +12,10 @@ var PluginError = gutil.PluginError;
 
 module.exports = function(options) {
   if (typeof options !== 'object') {
-    throw new PluginError('gulp-rsync', 'options must be an object');
+    this.emit(
+      'error',
+      new PluginError('gulp-rsync', 'options must be an object')
+    );
   }
 
   if (typeof options.destination !== 'string') {
@@ -28,11 +31,17 @@ module.exports = function(options) {
 
   return through.obj(function(file, enc, cb) {
     if (file.isStream()) {
-      throw new PluginError('gulp-rsync', 'Streams are not supported!');
+      this.emit(
+        'error',
+        new PluginError('gulp-rsync', 'Streams are not supported!')
+      );
     }
 
     if (path.relative(cwd, file.path).indexOf('..') === 0) {
-      throw new PluginError('gulp-rsync', 'Source contains paths outside of root'); 
+      this.emit(
+        'error',
+        new PluginError('gulp-rsync', 'Source contains paths outside of root')
+      );
     }
 
     sources.push(file);
@@ -79,7 +88,10 @@ module.exports = function(options) {
 
     if (options.clean) {
       if (!options.recursive) {
-        throw new PluginError('gulp-rsync', 'clean requires recursive option');
+        this.emit(
+          'error',
+          new PluginError('gulp-rsync', 'clean requires recursive option')
+        );
       }
       config.options['delete'] = true;
     }
@@ -100,7 +112,7 @@ module.exports = function(options) {
 
     rsync(config).execute(function(error, command) {
       if (error) {
-        throw new PluginError('gulp-rsync', error.stack);
+        this.emit('error', new PluginError('gulp-rsync', error.stack));
       }
       if (!options.silent) {
         gutil.log('gulp-rsync: Completed rsync.');
