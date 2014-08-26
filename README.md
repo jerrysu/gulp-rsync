@@ -36,15 +36,13 @@ gulp.task('deploy', function() {
 
 ###### `destination`
 
-Type: `string`
-Required: Yes
+Type: `string`, Required: Yes
 
 The destination path. Use `hostname` when using a remote path.
 
 ###### `root`
 
-Type: `string`
-Default: `process.cwd()`
+Type: `string`, Default: `process.cwd()`
 
 Specifying a root path changes the path names that are transferred to the
 destination. The paths piped into rsync must be within the root path (or the
@@ -80,8 +78,7 @@ Used to specify a user for the remote host.
 
 ###### `incremental`
 
-Type: `boolean`
-Default: `false`
+Type: `boolean`, Default: `false`
 
 If set to `true`, rsync will make incremental updates only. rsync will use the
 checksum of every file to determine whether a file needs to be updated. This
@@ -90,8 +87,7 @@ transferred each time.
 
 ###### `progress`
 
-Type: `boolean`
-Default: `false`
+Type: `boolean`, Default: `false`
 
 If set to `true`, the transfer progress for each file will be displayed in the
 console.
@@ -118,8 +114,7 @@ This looks like:
 
 ###### `relative`
 
-Type: `boolean`
-Default: `true`
+Type: `boolean`, Default: `true`
 
 By default, gulp-rsync will transfer all paths relative to the `root` specified.
 If you want to transfer assets from multiple paths to a single destination, you
@@ -138,15 +133,13 @@ This will transfer all assets (*.js, *.css, and images) into a single directory.
 
 ###### `emptyDirectories`
 
-Type: `boolean`
-Default: `false`
+Type: `boolean`, Default: `false`
 
 If set to `true`, rsync will create empty directories.
 
 ###### `recursive`
 
-Type: `boolean`
-Default: `false`
+Type: `boolean`, Default: `false`
 
 If set to `true`, rsync will transfer all files and subdirectories recursively.
 This is not necessary when using glob(s) with `gulp.src()`. However, it can be
@@ -176,8 +169,7 @@ much shorter.
 
 ###### clean
 
-Type: `boolean`
-Default: `false`
+Type: `boolean`, Default: `false`
 
 This must be used with `recursive` set to `true`. If set to `true`, this
 instructs rsync to delete all files and directories that are not in the source
@@ -214,8 +206,7 @@ This will transfer only minified CSS and JS files.
 
 ###### `silent`
 
-Type: `boolean`
-Default: `false`
+Type: `boolean`, Default: `false`
 
 Turns off logging.
 
