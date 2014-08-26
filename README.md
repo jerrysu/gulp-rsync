@@ -9,7 +9,7 @@ rsync needs to be installed on your machine.
 ### Installation
 
 ```
-npm install https://github.com/jerrysu/gulp-rsync.git
+npm install gulp-rsync --save-dev
 ```
 
 ### Usage
