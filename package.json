@@ -1,6 +1,6 @@
 {
   "name": "gulp-rsync",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Rsync tasks for deploying gulp file structures",
   "main": "index.js",
   "scripts": {
