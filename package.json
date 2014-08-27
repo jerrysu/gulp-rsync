@@ -23,13 +23,15 @@
     "url": "https://github.com/jerrysu/gulp-rsync/issues"
   },
   "homepage": "https://github.com/jerrysu/gulp-rsync",
-  "devDependencies": {
+  "dependencies": {
     "better-assert": "^1.0.1",
-    "chai": "^1.9.1",
-    "gulp-util": "^3.0.0",
     "lodash.every": "^2.4.1",
     "lodash.isstring": "^2.4.1",
-    "mocha": "^1.21.4",
+    "gulp-util": "^3.0.0",
     "through2": "^0.6.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4"
   }
 }
