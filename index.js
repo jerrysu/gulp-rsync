@@ -86,6 +86,12 @@ module.exports = function(options) {
       cwd: cwd
     };
 
+    if (options.args) {
+      for (key in options.args) {
+          config.options[key] = options.args[key]
+      }
+    }
+
     if (options.clean) {
       if (!options.recursive) {
         this.emit(
