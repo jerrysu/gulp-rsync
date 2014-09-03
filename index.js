@@ -68,6 +68,10 @@ module.exports = function(options) {
       destination = path.relative(cwd, path.resolve(process.cwd(), destination));
     }
 
+    if (options.port) {
+      options.shell = 'ssh -p ' + options.port;
+    }
+
     var config = {
       options: {
         'R': options.relative !== false,
@@ -75,6 +79,7 @@ module.exports = function(options) {
         'd': options.emptyDirectories,
         'r': options.recursive,
         'v': !options.silent,
+        'e': options.shell,
         'exclude': options.exclude,
         'include': options.include,
         'progress': options.progress

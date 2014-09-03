@@ -76,6 +76,19 @@ Type: `string`
 
 Used to specify a user for the remote host.
 
+###### `shell`
+
+Type: `string`
+
+Used to specify the remote shell to use.
+
+###### `port`
+
+Type: `integer`
+
+Used to specify the port for the remote host
+(overrides the `shell` option to `ssh -p {port}`).
+
 ###### `incremental`
 
 Type: `boolean`, Default: `false`
