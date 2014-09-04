@@ -124,7 +124,7 @@ module.exports = function(options) {
         this.emit('error', new PluginError('gulp-rsync', error.stack));
       }
       if (!options.silent) {
-        gutil.log('gulp-rsync:', Completed rsync.');
+        gutil.log('gulp-rsync:', 'Completed rsync.');
       }
       cb();
     });
