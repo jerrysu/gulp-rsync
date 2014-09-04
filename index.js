@@ -95,6 +95,12 @@ module.exports = function(options) {
       cwd: cwd
     };
 
+    if (options.args) {
+      for (var key in options.args) {
+          config.options[key] = options.args[key]
+      }
+    }
+
     if (options.clean) {
       if (!options.recursive) {
         this.emit(
@@ -110,7 +116,7 @@ module.exports = function(options) {
         data.toString().split('\r').forEach(function(chunk) {
           chunk.split('\n').forEach(function(line, j, lines) {
             log('gulp-rsync:', line, (j < lines.length - 1 ? '\n' : ''));
-          });          
+          });
         });
       };
       config.stdoutHandler = handler;
@@ -128,5 +134,5 @@ module.exports = function(options) {
       }
       cb();
     });
-  }); 
+  });
 };
