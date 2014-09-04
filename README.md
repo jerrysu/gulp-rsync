@@ -151,13 +151,13 @@ Type: `boolean`, Default: `false`
 
 If set to `true`, rsync will create empty directories.
 
-##### `times`
+###### `times`
 
 Type: `boolean`, Default: `false`
 
 Preserves times of the transferred files.
 
-##### `compress`
+###### `compress`
 
 Type: `boolean`, Default: `false`
 
@@ -230,7 +230,7 @@ gulp.src('build')
 
 This will transfer only minified CSS and JS files.
 
-##### `update`
+###### `update`
 
 Type: `boolean`, Default: `false`
 
