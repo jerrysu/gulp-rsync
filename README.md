@@ -76,6 +76,20 @@ Type: `string`
 
 Used to specify a user for the remote host.
 
+###### `shell`
+
+Type: `string`
+
+Typically, rsync is configured to use `ssh` by default, but you may prefer to
+use `rsh` on a local network.
+
+###### `port`
+
+Type: `integer`
+
+Used to specify an SSH port for the remote host. Note: This will override the
+shell option and force the use of `ssh`.
+
 ###### `incremental`
 
 Type: `boolean`, Default: `false`
@@ -136,6 +150,18 @@ This will transfer all assets (*.js, *.css, and images) into a single directory.
 Type: `boolean`, Default: `false`
 
 If set to `true`, rsync will create empty directories.
+
+##### `times`
+
+Type: `boolean`, Default: `false`
+
+Preserves times of the transferred files.
+
+##### `compress`
+
+Type: `boolean`, Default: `false`
+
+Compresses file data during transfer.
 
 ###### `recursive`
 
@@ -203,6 +229,12 @@ gulp.src('build')
 ```
 
 This will transfer only minified CSS and JS files.
+
+##### `update`
+
+Type: `boolean`, Default: `false`
+
+Skip files that are newer on the receiving end.
 
 ###### `silent`
 

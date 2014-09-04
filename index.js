@@ -58,6 +58,11 @@ module.exports = function(options) {
       return;
     }
 
+    var shell = options.shell;
+    if (options.port) {
+      shell = 'ssh -p ' + options.port;
+    }
+
     var destination = options.destination;
     if (options.hostname) {
       destination = options.hostname + ':' + destination;
@@ -73,8 +78,12 @@ module.exports = function(options) {
         'R': options.relative !== false,
         'c': options.incremental,
         'd': options.emptyDirectories,
+        'e': shell,
         'r': options.recursive,
+        't': options.times,
+        'u': options.update,
         'v': !options.silent,
+        'z': options.compress,
         'exclude': options.exclude,
         'include': options.include,
         'progress': options.progress
@@ -107,7 +116,7 @@ module.exports = function(options) {
       config.stdoutHandler = handler;
       config.stderrHandler = handler;
 
-      gutil.log('gulp-rsync: Starting rsync to ' + destination + '...');
+      gutil.log('gulp-rsync:', 'Starting rsync to ' + destination + '...');
     }
 
     rsync(config).execute(function(error, command) {
@@ -115,7 +124,7 @@ module.exports = function(options) {
         this.emit('error', new PluginError('gulp-rsync', error.stack));
       }
       if (!options.silent) {
-        gutil.log('gulp-rsync: Completed rsync.');
+        gutil.log('gulp-rsync:', Completed rsync.');
       }
       cb();
     });

@@ -61,7 +61,7 @@ rsync.prototype = {
       args = args.concat(longOptions.map(function(option) {
         var single = option.key.length === 1;
         var output = (single ? '-' : '--') + option.key;
-        if (typeof value !== 'boolean') {
+        if (typeof option.value !== 'boolean') {
           output += (single ? ' ' : '=') + escapeShellArg(option.value);
         }
         return output;
