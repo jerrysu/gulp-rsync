@@ -24,7 +24,7 @@ gulp.task('deploy', function() {
       root: 'build',
       hostname: 'example.com',
       destination: '/path/to/site'
-    });
+    }));
 });
 ```
 
