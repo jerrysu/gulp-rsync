@@ -127,6 +127,6 @@ module.exports = function(options) {
         gutil.log('gulp-rsync:', 'Completed rsync.');
       }
       cb();
-    });
+    }.bind(this));
   }); 
 };
