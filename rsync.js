@@ -84,7 +84,7 @@ rsync.prototype = {
     if (process.platform === 'win32') {
       childProcess = spawn('cmd.exe', ['/s', '/c', '"' + command + '"'], {
         cwd: this._cwd,
-        stdio: 'pipe',
+        stdio: [process.stdin, 'pipe', 'pipe'],
         env: process.env,
         windowsVerbatimArguments: true
       });
