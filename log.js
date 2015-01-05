@@ -5,7 +5,6 @@ var util = require('util');
 
 function log() {
   process.stdout.write(util.format.apply(this, arguments));
-  process.stdout.cursorTo(0);
 }
 
 module.exports = function() {
