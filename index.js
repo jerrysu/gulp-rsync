@@ -86,7 +86,8 @@ module.exports = function(options) {
         'z': options.compress,
         'exclude': options.exclude,
         'include': options.include,
-        'progress': options.progress
+        'progress': options.progress,
+        'links': options.links
       },
       source: sources.map(function(source) {
         return path.relative(cwd, source.path) || '.';
