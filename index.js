@@ -96,7 +96,7 @@ module.exports = function(options) {
     };
 
     if (options.options) {
-             for (var key in options.options) { config.options[key] = options.options[key]; }
+      for (var key in options.options) { config.options[key] = options.options[key]; }
     }
 
     if (options.clean) {
