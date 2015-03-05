@@ -95,6 +95,10 @@ module.exports = function(options) {
       cwd: cwd
     };
 
+    if (options.options) {
+             for (var key in options.options) { config.options[key] = options.options[key]; }
+    }
+
     if (options.clean) {
       if (!options.recursive) {
         this.emit(
