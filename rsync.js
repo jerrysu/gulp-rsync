@@ -56,6 +56,17 @@ rsync.prototype = {
     if (shortOptions.length > 0) {
       args.push('-' + shortOptions.join(''));
     }
+    
+    // "include" -argument must be applied before "exclude"
+    longOptions.sort(function (a, b) {
+      if (a.key === 'include') {
+        return -1;
+      }
+      if (b.key === 'include') {
+        return 1;
+      }
+      return 0;
+    })
 
     if (longOptions.length > 0) {
       args = args.concat(longOptions.map(function(option) {
