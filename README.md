@@ -49,14 +49,14 @@ destination. The paths piped into rsync must be within the root path (or the
 plugin will yell at you).
 
 ```js
-gulp.src('build/js/**']).pipe(rsync({destination: '/tmp'});
+gulp.src('build/js/**']).pipe(rsync({destination: '/tmp'}));
 ```
 
 This will create the directory `build` in `/tmp` as well as the directory `js`
 in `/tmp/build`.
 
 ```js
-gulp.src('build/js/**']).pipe(rsync({root: 'build', destination: '/tmp'});
+gulp.src('build/js/**']).pipe(rsync({root: 'build', destination: '/tmp'}));
 ```
 
 This will create the directory `js` in `/tmp`.
@@ -140,7 +140,7 @@ gulp.src(['build/js/**/*.js', 'build/css/**/*.css', 'build/images/**'])
     hostname: 'example.cdn',
     destination: '/path/to/all/assets',
     relative: false
-  });
+  }));
 ```
 
 This will transfer all assets (*.js, *.css, and images) into a single directory.
@@ -177,7 +177,7 @@ gulp.src(['build/js', 'build/css', 'build/images'])
     root: 'build',
     destination: '/tmp',
     recursive: true
-  });
+  }));
 ```
 
 This is the same as:
@@ -187,7 +187,7 @@ gulp.src(['build/js/**', 'build/css/**', 'build/images/**'])
   .pipe(rsync({
     root: 'build',
     destination: '/tmp'
-  });
+  }));
 ```
 
 The difference is that the actual `rsync` command used in the first example is
@@ -225,7 +225,7 @@ gulp.src('build')
     recursive: true,
     exclude: ['*.css', '*.js'],
     include: ['*.min.css', '*.min.js']
-  });
+  }));
 ```
 
 This will transfer only minified CSS and JS files.
