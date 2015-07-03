@@ -19,7 +19,7 @@ var gulp = require('gulp');
 var rsync = require('gulp-rsync');
 
 gulp.task('deploy', function() {
-  gulp.src('build/**')
+  return gulp.src('build/**')
     .pipe(rsync({
       root: 'build',
       hostname: 'example.com',
