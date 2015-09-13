@@ -50,7 +50,11 @@ module.exports = function(options) {
     sources = sources.filter(function(source) {
       return !source.isNull() ||
         options.emptyDirectories ||
-        (source.path === cwd && options.recursive);
+        ( options.recursive
+          && ( source.path === cwd
+               || source.path.substr(0, cwd.length + 1) === (cwd + path.sep)
+             )
+        );
     });
 
     if (sources.length === 0) {
