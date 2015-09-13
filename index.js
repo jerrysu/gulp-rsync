@@ -50,7 +50,11 @@ module.exports = function(options) {
     sources = sources.filter(function(source) {
       return !source.isNull() ||
         options.emptyDirectories ||
-        (source.path === cwd && options.recursive);
+        ( options.recursive
+          && ( source.path === cwd
+               || source.path.substr(0, cwd.length + 1) === (cwd + path.sep)
+             )
+        );
     });
 
     if (sources.length === 0) {
@@ -72,10 +76,12 @@ module.exports = function(options) {
     } else {
       destination = path.relative(cwd, path.resolve(process.cwd(), destination));
     }
+    
+    options.relative = options.relative !== false;
 
     var config = {
       options: {
-        'R': options.relative !== false,
+        'R': options.relative,
         'c': options.incremental,
         'd': options.emptyDirectories,
         'e': shell,
@@ -89,7 +95,23 @@ module.exports = function(options) {
         'progress': options.progress
       },
       source: sources.map(function(source) {
-        return path.relative(cwd, source.path) || '.';
+        var loc = options.relative
+          ? (path.relative(cwd, source.path) || '.' )
+          : source.path;
+
+        if(process.platform === 'win32') {
+          loc = loc.replace(/\\/g, '/');
+
+          if(!options.relative) {
+            loc = loc.replace(/^([A-Z]):/,
+              function(match, p1, p2){
+                return '/cygdrive/' + p1.toLowerCase();
+              }
+            );
+          }
+        }
+
+        return loc;
       }),
       destination: destination,
       cwd: cwd
