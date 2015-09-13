@@ -89,7 +89,9 @@ module.exports = function(options) {
         'progress': options.progress
       },
       source: sources.map(function(source) {
-        return path.relative(cwd, source.path) || '.';
+        var loc = path.relative(cwd, source.path) || '.';
+        if(process.platform === 'win32')  loc = loc.replace(/\\/g, '/');
+        return loc;
       }),
       destination: destination,
       cwd: cwd
