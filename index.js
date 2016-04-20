@@ -75,15 +75,18 @@ module.exports = function(options) {
 
     var config = {
       options: {
+        'a': options.archive,
+        'n': options.dryrun,
         'R': options.relative !== false,
         'c': options.incremental,
         'd': options.emptyDirectories,
         'e': shell,
-        'r': options.recursive,
-        't': options.times,
+        'r': options.recursive && !options.archive,
+        't': options.times && !options.archive,
         'u': options.update,
         'v': !options.silent,
         'z': options.compress,
+        'chmod': options.chmod,
         'exclude': options.exclude,
         'include': options.include,
         'progress': options.progress,
@@ -97,10 +100,10 @@ module.exports = function(options) {
     };
 
     if (options.clean) {
-      if (!options.recursive) {
+      if (!options.recursive && !options.archive) {
         this.emit(
           'error',
-          new PluginError('gulp-rsync', 'clean requires recursive option')
+          new PluginError('gulp-rsync', 'clean requires recursive or archive option')
         );
       }
       config.options['delete'] = true;
@@ -111,7 +114,7 @@ module.exports = function(options) {
         data.toString().split('\r').forEach(function(chunk) {
           chunk.split('\n').forEach(function(line, j, lines) {
             log('gulp-rsync:', line, (j < lines.length - 1 ? '\n' : ''));
-          });          
+          });
         });
       };
       config.stdoutHandler = handler;
@@ -124,10 +127,13 @@ module.exports = function(options) {
       if (error) {
         this.emit('error', new PluginError('gulp-rsync', error.stack));
       }
+      if (options.command) {
+        gutil.log(command);
+      }
       if (!options.silent) {
         gutil.log('gulp-rsync:', 'Completed rsync.');
       }
       cb();
     }.bind(this));
-  }); 
+  });
 };
