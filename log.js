@@ -4,8 +4,7 @@ var gutil = require('gulp-util');
 var util = require('util');
 
 function log() {
-  process.stdout.write(util.format.apply(this, arguments));
-  process.stdout.cursorTo(0);
+  process.stdout.write(util.format.apply(this, arguments)); 
 }
 
 module.exports = function() {
