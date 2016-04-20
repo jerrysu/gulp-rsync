@@ -242,6 +242,12 @@ Type: `boolean`, Default: `false`
 
 Turns off logging.
 
+###### `links`
+
+Type: `boolean`, Default: `false`
+
+Enables creation of symbolic links on the receiving end.
+
 #### License
 
 > The MIT License (MIT)
