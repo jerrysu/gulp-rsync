@@ -123,6 +123,7 @@ function escapeShellArg(arg) {
   if (!/(["'`\\ ])/.test(arg)) {
     return arg;
   }
+  arg = arg.replace(/([\\])/g, '/');
   return '"' + arg.replace(/(["'`\\])/g, '\\$1') + '"';
 }
 
