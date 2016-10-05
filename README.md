@@ -295,6 +295,12 @@ Enables files or directories matching the pattern(s) provided to be excluded
 from the transfer. This is probably most useful when `recursive` is set to
 `true` since it is typically better to make these exclusions in `gulp.src()`.
 
+###### `chown`
+
+Type: `string`, Compares to: `rsync --chown=STRING`
+
+Forces all remote files to be owned by the USER:GROUP provided in the string. If GROUP is empty, the trailing colon may be omitted, but if USER is empty, a leading colon must be supplied. If you're running macOS please check your rsync version with `rsync --version`. The default system version, older than 3.1.0, doesn't support this option. You can fix this by installing a recent version from Brew (`brew install homebrew/dupes/rsync`) or MacPorts (`sudo port install rsync`).
+
 ###### `exclude`
 
 Type: `string|Array<string>`, Compares to: `rsync --exclude=PATTERN`
