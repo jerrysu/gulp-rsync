@@ -1,5 +1,8 @@
 ## gulp-rsync
 
+[![npm](https://img.shields.io/npm/v/gulp-rsync.svg?style=plastic)]()
+[![npm](https://img.shields.io/npm/dt/gulp-rsync.svg?style=plastic)]()
+
 Use the file transferring and syncing capabilities of `rsync` within your Gulp task. `gulp-rsync` calls `rsync` and offers you a subset of options for an easy setup.
 
 ### Prerequisites
