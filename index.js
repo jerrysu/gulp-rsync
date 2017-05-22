@@ -87,6 +87,7 @@ module.exports = function(options) {
         'v': !options.silent,
         'z': options.compress,
         'chmod': options.chmod,
+        'chown': options.chown,
         'exclude': options.exclude,
         'include': options.include,
         'progress': options.progress,
