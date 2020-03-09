@@ -120,7 +120,7 @@ rsync.prototype = {
 };
 
 function escapeShellArg(arg) {
-  if (!/(["'`\\ ])/.test(arg)) {
+  if (!/(["'`\\\(\) ])/.test(arg)) {
     return arg;
   }
   arg = arg.replace(/([\\])/g, '/');
