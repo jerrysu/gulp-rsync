@@ -86,6 +86,8 @@ module.exports = function(options) {
         'u': options.update,
         'v': !options.silent,
         'z': options.compress,
+        'omit-dir-times': options.omit_dir_times,
+        'no-perms': options.no_perms,
         'chmod': options.chmod,
         'chown': options.chown,
         'exclude': options.exclude,
