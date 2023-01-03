@@ -91,6 +91,8 @@ rsync.prototype = {
   execute: function(callback) {
     var command = this.command();
 
+    require('gulp-util').log('gulp-rsync:', 'Command: ' + command);
+
     var childProcess;
     if (process.platform === 'win32') {
       childProcess = spawn('cmd.exe', ['/s', '/c', '"' + command + '"'], {
