@@ -67,6 +67,7 @@ gulp.task('deploy', function() {
 -e, --rsh=COMMAND   specify the remote shell to use
 -n, --dry-run       perform a trial run with no changes made
 -r, --recursive     recurse into directories
+-R, --relative      use relative path names
 -t, --times         preserve modification times
 -u, --update        skip files that are newer on the receiver
 -v, --verbose       increase verbosity

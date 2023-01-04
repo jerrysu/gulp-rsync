@@ -81,12 +81,12 @@ module.exports = function(options) {
     var config = {
       options: {
         'a': options.archive,
-        'n': options.dryrun,
-        'R': options.relative,
         'c': options.incremental,
         'd': options.emptyDirectories,
         'e': shell,
+        'n': options.dryrun,
         'r': options.recursive && !options.archive,
+        'R': options.relative,
         't': options.times && !options.archive,
         'u': options.update,
         'v': !options.silent,

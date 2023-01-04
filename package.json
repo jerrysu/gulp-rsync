@@ -1,6 +1,6 @@
 {
   "name": "gulp-rsync",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "Rsync tasks for deploying gulp file structures",
   "main": "index.js",
   "scripts": {
@@ -33,6 +33,6 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^7.1.2"
+    "mocha": "^10.2.0"
   }
 }

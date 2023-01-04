@@ -1,0 +1,4 @@
+{
+	"name": "gulp-rsync",
+	"image": "mcr.microsoft.com/devcontainers/universal:2-linux"
+}
