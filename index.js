@@ -139,10 +139,9 @@ module.exports = function(options) {
 
     if (!options.silent) {
       var handler = function(data) {
-        data.toString().split('\r').forEach(function(chunk) {
-          chunk.split('\n').forEach(function(line, j, lines) {
-            log('gulp-rsync:', line, (j < lines.length - 1 ? '\n' : ''));
-          });
+        data.toString().trim().replace(/\r\n/, '\n')
+          .split('\n').forEach(function (line) {
+            gutil.log('gulp-rsync:', line);
         });
       };
       config.stdoutHandler = handler;
