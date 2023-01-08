@@ -98,7 +98,8 @@ module.exports = function(options) {
         'exclude': options.exclude,
         'include': options.include,
         'progress': options.progress,
-        'links': options.links
+        'links': options.links,
+        'rsync-path': options.remoteRsyncPath
       },
       source: sources.map(function(source) {
         var loc = options.relative
